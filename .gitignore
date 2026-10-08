@@ -1,0 +1,16 @@
+# ---------- Backend ----------
+backend/target/
+# arquivo com as credenciais do banco (equivale ao persistence.xml ignorado no JSF)
+backend/src/main/resources/application-dev.properties
+
+# ---------- Frontend ----------
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# ---------- IDEs / SO ----------
+.idea/
+*.iml
+.vscode/
+Thumbs.db
+.DS_Store
