@@ -16,15 +16,15 @@
                                                  ▲   DTO (record)  │  Entity (@Entity)
 ```
 
-| Camada            | Responsabilidade                                    | No seu JSF era…                     |
-|-------------------|-----------------------------------------------------|-------------------------------------|
-| **Entity**        | Espelho da tabela                                   | a mesma `@Entity`                   |
-| **Repository**    | Acesso ao banco (CRUD + consultas)                  | `AbstractFacade` + `EntityManager`  |
-| **Service**       | Regras de negócio + transação                       | lógica espalhada no bean/facade     |
-| **DTO**           | O "formato" do JSON que entra e sai                 | (não existia — a tela lia a entidade)|
-| **Controller**    | Recebe HTTP, valida, chama o service, responde      | Managed bean (action methods)       |
-| **Componente**    | Tela + estado da tela                               | xhtml + managed bean                |
-| **Service (front)** | Fala com a API                                    | (não existia)                       |
+| Camada              | Responsabilidade                               | No seu JSF era…                       |
+| ------------------- | ---------------------------------------------- | ------------------------------------- |
+| **Entity**          | Espelho da tabela                              | a mesma `@Entity`                     |
+| **Repository**      | Acesso ao banco (CRUD + consultas)             | `AbstractFacade` + `EntityManager`    |
+| **Service**         | Regras de negócio + transação                  | lógica espalhada no bean/facade       |
+| **DTO**             | O "formato" do JSON que entra e sai            | (não existia — a tela lia a entidade) |
+| **Controller**      | Recebe HTTP, valida, chama o service, responde | Managed bean (action methods)         |
+| **Componente**      | Tela + estado da tela                          | xhtml + managed bean                  |
+| **Service (front)** | Fala com a API                                 | (não existia)                         |
 
 Estrutura de pacotes que vamos criar no backend:
 
