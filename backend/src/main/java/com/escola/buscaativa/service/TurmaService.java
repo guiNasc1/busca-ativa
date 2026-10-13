@@ -34,7 +34,7 @@ public class TurmaService {
         validarNomeUnico(dados, null);
         Turma turma = new Turma();
         copiarDados(dados, turma);
-        return TurmaResponse.from(turma);
+        return TurmaResponse.from(repository.save(turma));
     }
 
     @Transactional

@@ -6,9 +6,12 @@ import com.escola.buscaativa.model.Turma;
 import com.escola.buscaativa.service.TurmaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -26,5 +29,26 @@ public class TurmaController {
     @GetMapping("/{id}")
     public TurmaResponse buscar(@PathVariable Long id) {
         return service.buscarPorId(id);
+    }
+
+    @PostMapping
+    public ResponseEntity<TurmaResponse> criar(@Valid @RequestBody TurmaRequest dados){
+        TurmaResponse criada = service.criar(dados);
+        URI local = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(criada.id())
+                .toUri();
+        return ResponseEntity.created(local).body(criada);
+    }
+
+    @PutMapping("/{id}")
+    public TurmaResponse atualizar(@PathVariable Long id, @Valid @RequestBody TurmaRequest dados){
+        return service.atualizar(id, dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void excluir(@PathVariable Long id){
+        service.excluir(id);
     }
 }

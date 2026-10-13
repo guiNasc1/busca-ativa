@@ -1,0 +1,13 @@
+### Listar
+GET http://localhost:8080/api/turmas
+
+### Criar
+POST http://localhost:8080/api/turmas
+Content-Type: application/json
+
+{ "nome": "1º Ano A", "turno": "MANHA", "anoLetivo": 2026 }
+
+### Deletar
+DELETE http://localhost:8080/api/turmas/1
+Content-Type: application/json
+
